@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Yapper Plugins",
+    "version": "1.0",
+    "description": "Adds a plugin system to Yapper.",
+    "permissions": ["storage", "scripting"],
+    "host_permissions": ["https://www.yapper.website/*"],
+    "background": {
+        "service_worker": "plugins/background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.yapper.website/*"],
+            "js": ["core/core.js"],
+            "run_at": "document_start",
+            "world": "MAIN"
+        }
+    ]
+}
